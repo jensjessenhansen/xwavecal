@@ -44,18 +44,20 @@ if __name__ == '__main__':
     thar_file = fits.open('thar_s1_2018-10-27T17-48-01.fits')
     blaze_file = fits.open('mastercont_20180322_slit6.fits')
 
-    output_fits_name = 'test.fits'
+    output_fits_name = 'thar_s1_2018-10-27T17-48-01_xwavecal_fmt.fits'
 
     #  Minimal set of header keywords needed for xwavecal to run
-    header_keys = {'OBSTYPE': 'wavecal',
+    header_keys = {
+             'OBSTYPE': 'wavecal',
              'GAIN': 1.,
              'RDNOISE': 9.5,
              'OBJECTS': 'thar&none&none',
              'DATE-OBS': '2018-10-27T17:48:01.461717',
-             'TELESCOP': 'SONG1',
+             'TELESCOP': 's1',
              'INSTRUME': 'Spectrograph',
              'SITEID': 'Teide',
-             'FRAMENUM': 'some_unique_id'}
+             'FRAMENUM': '1'
+    }
 
     raw_image = np.zeros((2048, 2048))
 
